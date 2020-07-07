@@ -27,10 +27,10 @@
         <input type="submit" value="Submit">
       </form>
       <?php
-        if ($_GET["e"] == "1") {
+        if ($_GET["e"] == "1") { //Error code 1
           echo '<script>alert("Incorret details")</script>';
         }
-        if ($_GET["e"] == "2") {
+        if ($_GET["e"] == "2") { //Error code 2
           echo '<script>alert("User already exists")</script>';
         }
       ?>
