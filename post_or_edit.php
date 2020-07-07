@@ -1,17 +1,17 @@
 <?php
 
-session_start();
+session_start(); //Start the php session
 $all = "";
 
-if (isset($_POST["text"]) == false) {
-  header("Location: home.php");
+if (isset($_POST["text"]) == false) { //Get if any text was actually sent
+  header("Location: home.php"); //If not redirect home
 }
 
-$all = $_SESSION["all"];
+$all = $_SESSION["all"]; //Get the login details saved on the home page
 $pass = explode(":", $all)[1];
 $user = explode(":", $all)[0];
 
-$found = false;
+$found = false; //Check the account (see home.php)
 $directory = __DIR__  . "/accounts/";
 $files = array_diff(scandir($directory), array('..', '.'));
 
@@ -36,7 +36,7 @@ if ($found == false) {
   exit();
 }
 
-file_put_contents("my/file", $_POST["text"]);
-header("Location: home.php");
+file_put_contents("my/file", $_POST["text"]); //Save the text to a file
+header("Location: home.php"); //redirect home
 
 ?>
